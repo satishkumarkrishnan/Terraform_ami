@@ -1,6 +1,20 @@
 #######################################################
 ################### Start - AWS VPC ###################
 #######################################################
+terraform {
+  required_version = ">= 1.0.0, < 2.0.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0.0"
+    }
+  }
+}
+
+#######################################################
+################### Start - AWS VPC ###################
+#######################################################
 
 resource "aws_vpc" "tokyo-vpc" {
   cidr_block           = var.vpc_CIDR
@@ -52,7 +66,7 @@ resource "aws_network_acl" "tokyo-nacl" {
   count  = length(var.private_subnet)
   vpc_id = aws_vpc.tokyo-vpc.id
   subnet_ids = [aws_subnet.private[count.index].id]
-    # allow ingress HTTP from port  80 all IPs
+  # allow ingress HTTP from port  80 all IPs
   ingress {
     protocol   = "tcp"
     rule_no    = 100
@@ -71,10 +85,10 @@ resource "aws_network_acl" "tokyo-nacl" {
     from_port  = 0
     to_port    = 65535
   }
-    tags = {
-      Name = "tokyo-sg-${count.index}"
-    }
+  tags = {
+    Name = "tokyo-sg-${count.index}"
   }
+}
 
 # Create Security Groups
 resource "aws_security_group" "tokyo-securitygroup" {
@@ -130,17 +144,15 @@ resource "aws_route_table_association" "tokyo-rt-association" {
   subnet_id      = aws_subnet.private[count.index].id
   route_table_id = aws_route_table.tokyo-public-route.id
 }
-
 #####################################################
 ################### End - AWS VPC ###################
 #####################################################
-#Adding Key Pair values
 resource "aws_key_pair" "deployer" {
   key_name   = "ec2-key"
   public_key = file("${path.module}/key")
 }
-## To Create EC2 instance
 
+## To Create EC2 instance
 resource "aws_instance" "tokyo-frontend" {
   ami             = data.aws_ami.ami.id
   instance_type   = "t2.micro"

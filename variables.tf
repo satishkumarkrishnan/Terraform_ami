@@ -146,13 +146,7 @@ variable "ssh_user" {
   default = "ec2-user"
 }
 
-variable "keypair" {
-  type = map(string)
-  default = {
-    "key_name"   = "tokyo-aws-key"
-    "public_key" = "tokyo-aws-key.pub"
-  }
-}
+
 #===========================================================================
 #================== End - AWS EC2 configuration variables ==================
 #===========================================================================

@@ -165,3 +165,34 @@ resource "aws_instance" "tokyo-frontend" {
     Role = "frontend"
   }
 }
+#EBS Snapshot Creation
+resource "aws_ebs_snapshot" "example_snapshot" {
+  volume_id = aws_ebs_volume.example.id
+
+  tags = {
+    Name = "terraform_snap"
+  }
+}
+#EBS Volume creation
+resource "aws_ebs_volume" "example" {
+  availability_zone = "ap-northeast-1a"
+  size              = 40
+  tags = {
+    Name = "terraform_ebs_volume"
+  }
+}
+
+# AMI Creation
+resource "aws_ami" "example" {
+  name                = "terraform-ami-"
+  virtualization_type = "hvm"
+  root_device_name    = "/dev/xvdb"
+  ebs_block_device {
+    device_name = "/dev/xvdb"
+    snapshot_id = "snap-08a5274c81e20b415"
+    volume_size = 40
+  }
+  tags = {
+    Name = "terraform_poc_image"
+  }
+}

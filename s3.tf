@@ -39,6 +39,6 @@ resource "aws_s3_object" "object" {
   key    = "terraform-ami-poc" # Object name
   content  = aws_ami_from_instance.example.id
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }

@@ -34,7 +34,7 @@ output "vpc_be_sg" {
   value = aws_security_group.tokyo-securitygroup[1].id
 }
 
-output "ami_arn" {
+/*output "ami_arn" {
   value = aws_ami_from_instance.example.arn
 }
 
@@ -81,3 +81,4 @@ output "ami_public" {
 output "ami_tags_all" {
   value = aws_ami_from_instance.example.tags_all
 }
+*/

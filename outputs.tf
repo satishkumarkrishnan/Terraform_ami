@@ -35,49 +35,49 @@ output "vpc_be_sg" {
 }
 
 output "ami_arn" {
-  value = aws_ami.example.arn
+  value = aws_ami_from_instance.example.arn
 }
 
 output "ami_private_id" {
-  value = aws_ami.example.id
+  value = aws_ami_from_instance.example.id
 }
 
 output "ami_owner_id" {
-  value = aws_ami.example.owner_id
+  value = aws_ami_from_instance.example.owner_id
 }
 
 output "ami_root_snapshot_id" {
-  value = aws_ami.example.root_snapshot_id
+  value = aws_ami_from_instance.example.root_snapshot_id
 }
 
 output "ami_usage_operation" {
-  value = aws_ami.example.usage_operation
+  value = aws_ami_from_instance.example.usage_operation
 }
 
 output "ami_platform_details" {
-  value = aws_ami.example.platform_details
+  value = aws_ami_from_instance.example.platform_details
 }
 
 output "ami_image_owner_alias" {
-  value = aws_ami.example.image_owner_alias
+  value = aws_ami_from_instance.example.image_owner_alias
 }
 
 output "ami_image_type" {
-  value = aws_ami.example.image_type
+  value = aws_ami_from_instance.example.image_type
 }
 
 output "ami_hypervisor" {
-  value = aws_ami.example.hypervisor
+  value = aws_ami_from_instance.example.hypervisor
 }
 
 output "ami_platform" {
-  value = aws_ami.example.platform
+  value = aws_ami_from_instance.example.platform
 }
 
 output "ami_public" {
-  value = aws_ami.example.public
+  value = aws_ami_from_instance.example.public
 }
 
 output "ami_tags_all" {
-  value = aws_ami.example.tags_all
+  value = aws_ami_from_instance.example.tags_all
 }

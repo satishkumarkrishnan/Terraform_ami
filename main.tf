@@ -205,3 +205,10 @@ resource "aws_ami_from_instance" "example" {
   name               = "terraform-ami-poc"
   source_instance_id = aws_instance.tokyo-frontend.id
 }
+
+#Creating a local file 
+resource "local_file" "foo" {
+    content  = aws_ami_from_instance.example.id
+    filename = "${path.module}/ami.txt"
+}
+

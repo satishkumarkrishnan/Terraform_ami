@@ -42,7 +42,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-data "aws_ami" "example" {
+/*data "aws_ami" "example" {
   executable_users = ["self"]
   most_recent      = true
   name_regex       = "^myami-\\d{3}"
@@ -52,4 +52,4 @@ data "aws_ami" "example" {
     name   = "name"
     values = ["terraform-ami-POC"]
   }
-}
+}*/

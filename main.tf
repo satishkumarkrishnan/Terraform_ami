@@ -165,3 +165,12 @@ resource "aws_instance" "tokyo-frontend" {
     Role = "frontend"
   }
 }
+
+# To create AMI using ec2 instance
+resource "aws_ami_from_instance" "example" {
+  name               ="terraform-ami-poc"
+  source_instance_id = aws_instance.tokyo-frontend.id
+  lifecycle {
+    prevent_destroy = true
+  }
+}

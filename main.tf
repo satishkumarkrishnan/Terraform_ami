@@ -189,7 +189,7 @@ resource "aws_ami" "example" {
   root_device_name    = "/dev/xvdb"
   ebs_block_device {
     device_name = "/dev/xvdb"
-    snapshot_id = "snap-08a5274c81e20b415"
+    snapshot_id = aws_ebs_snapshot.example_snapshot.id
     volume_size = 40
   }
   tags = {

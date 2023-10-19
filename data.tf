@@ -8,6 +8,7 @@ data "aws_security_group" "fe_security_id" {
     name   = "tag:Name"
     values = ["tokyo-sg-0"] # insert value here
   }
+  depends_on = [aws_security_group.tokyo-securitygroup]
 }
 
 data "aws_security_group" "be_security_id" {
@@ -15,6 +16,7 @@ data "aws_security_group" "be_security_id" {
     name   = "tag:Name"
     values = ["tokyo-sg-1"] # insert value here
   }
+  depends_on = [aws_security_group.tokyo-securitygroup]
 }
 
 data "aws_subnet" "fe_subnet" {
@@ -22,6 +24,7 @@ data "aws_subnet" "fe_subnet" {
     name   = "tag:Name"
     values = ["tokyo-subnets-0"] # insert value here
   }
+  depends_on = [aws_subnet.private]
 }
 
 data "aws_subnet" "be_subnet" {
@@ -29,13 +32,15 @@ data "aws_subnet" "be_subnet" {
     name   = "tag:Name"
     values = ["tokyo-subnets-1"] # insert value here
   }
+  depends_on = [aws_subnet.private]
 }
 
 data "aws_vpc" "tokyo_vpc" {
   filter {
     name   = "tag:Name"
-    values = ["tokyo Virtual Private Cloud"] # insert value here
+    values = ["tokyo Virtual Private Cloud"] # insert value here    
   }
+  depends_on = [aws_vpc.tokyo-vpc]
 }
 
 data "aws_availability_zones" "available" {

@@ -37,7 +37,6 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 resource "aws_s3_object" "object" {
   bucket = "tokyo-ami"
   key    = "terraform-ami-poc" # Object name
-#  source = "terraform_poc_image_ami.tf"
   content  = aws_ami_from_instance.example.id
   lifecycle {
     prevent_destroy = false

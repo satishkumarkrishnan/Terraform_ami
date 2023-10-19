@@ -184,7 +184,7 @@ resource "aws_ebs_volume" "example" {
 
 # AMI Creation
 resource "aws_ami" "example" {
-  name                = "terraform-ami-"
+  name                = "terraform-ami-POC"
   virtualization_type = "hvm"
   root_device_name    = "/dev/xvdb"
   ebs_block_device {

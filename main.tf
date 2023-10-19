@@ -165,20 +165,22 @@ resource "aws_instance" "tokyo-frontend" {
     Role = "frontend"
   }
 }
+
+#EBS Volume creation
+/*resource "aws_ebs_volume" "example" {
+  availability_zone = "ap-northeast-1a"
+  size              = 40
+  tags = {
+    Name = "terraform_ebs_volume"
+  }
+}
+
 #EBS Snapshot Creation
 resource "aws_ebs_snapshot" "example_snapshot" {
   volume_id = aws_ebs_volume.example.id
 
   tags = {
     Name = "terraform_snap"
-  }
-}
-#EBS Volume creation
-resource "aws_ebs_volume" "example" {
-  availability_zone = "ap-northeast-1a"
-  size              = 40
-  tags = {
-    Name = "terraform_ebs_volume"
   }
 }
 
@@ -195,4 +197,11 @@ resource "aws_ami" "example" {
   tags = {
     Name = "terraform_poc_image"
   }
+}
+*/
+
+# AMI Creation using EC2 instance
+resource "aws_ami_from_instance" "example" {
+  name               = "terraform-ami-poc"
+  source_instance_id = aws_instance.tokyo-frontend.id
 }

@@ -34,11 +34,12 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
   restrict_public_buckets = true
 }
 # Upload TF state file to S3 bucket
-/*resource "aws_s3_object" "object" {
+resource "aws_s3_object" "object" {
   bucket = "tokyo-ami"
-  key    = "terraform_poc_image_ami" # Object name
-  source = "terraform_poc_image_ami.tf"
+  key    = "terraform-ami-poc" # Object name
+#  source = "terraform_poc_image_ami.tf"
+  content  = aws_ami_from_instance.example.id
   lifecycle {
     prevent_destroy = false
   }
-}*/
+}

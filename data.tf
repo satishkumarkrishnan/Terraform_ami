@@ -42,7 +42,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-/*ata "aws_ami" "example" {
+/*data "aws_ami" "example" {
   executable_users = ["self"]
   most_recent      = true
   name_regex       = "^myami-\\d{3}"

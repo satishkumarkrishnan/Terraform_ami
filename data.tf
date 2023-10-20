@@ -47,7 +47,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-data "aws_ami" "self_ami" {
+/*data "aws_ami" "self_ami" {
   most_recent      = true 
   owners           = ["self"]
 
@@ -55,4 +55,4 @@ data "aws_ami" "self_ami" {
     name   = "state"
     values = ["available"]
   }
-}
+}*/

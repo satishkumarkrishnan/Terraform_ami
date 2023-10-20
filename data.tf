@@ -47,14 +47,12 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-/*data "aws_ami" "example" {
-  executable_users = ["self"]
-  most_recent      = true
-  name_regex       = "^myami-\\d{3}"
+data "aws_ami" "self_ami" {
+  most_recent      = true 
   owners           = ["self"]
 
   filter {
-    name   = "name"
-    values = ["terraform-ami-POC"]
+    name   = "state"
+    values = ["available"]
   }
-}*/
+}

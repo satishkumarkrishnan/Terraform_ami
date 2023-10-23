@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "Terraform-rds",
+			"path": "../../Terraform-rds"
+		}
+	],
+	"settings": {}
+}

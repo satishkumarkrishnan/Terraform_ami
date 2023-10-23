@@ -25,4 +25,4 @@ resource "aws_instance" "tokyo-private-ami" {
   tags = {
     Name = "EC2_created_using_module"    
   }
-}*/
+}

@@ -16,7 +16,7 @@ terraform {
 ################### Start - AWS VPC ###################
 #######################################################
 
-/*resource "aws_vpc" "tokyo-vpc" {
+resource "aws_vpc" "tokyo-vpc" {
   cidr_block           = var.vpc_CIDR
   instance_tenancy     = var.instanceTenancy
   enable_dns_support   = var.dnsSupport
@@ -173,4 +173,4 @@ resource "aws_ami_from_instance" "example" {
   lifecycle {
     prevent_destroy = false    
   }
-}*/
+}

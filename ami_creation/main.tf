@@ -10,8 +10,7 @@ resource "aws_instance" "tokyo-backend" {
   }
 }
 
-module "self_owned_ami" {
-#        source = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"        
+module "self_owned_ami" { 
          source = "../"        
       }
 
